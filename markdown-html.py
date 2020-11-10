@@ -11,18 +11,14 @@ INPUT_LIST = json.loads(os.environ['INPUT_INPUT_FILES'])
 OUTPUT_LIST = json.loads(os.environ['INPUT_OUTPUT_FILES'])
 EXCLUDE_DUPLICATES : bool = json.loads(os.environ['INPUT_EXCLUDE_DUPLICATES'])
 
-if not isinstance(INPUT_LIST, list):
-    raise ValueError()
-
-for sublist in INPUT_LIST:
-    if not isinstance(sublist, list):
-        raise ValueError()
+if not isinstance(INPUT_LIST, list) or not all([isinstance(sublist, list) for sublist in INPUT_LIST]):
+    raise ValueError("input_files must be a JSON list of lists")
 
 if not isinstance(OUTPUT_LIST, list):
-    raise ValueError()
+    raise ValueError("output_files must be a JSON list")
 
 if len(OUTPUT_LIST) != len(INPUT_LIST):
-    raise ValueError()
+    raise ValueError(f"input_files (length: {len(INPUT_LIST)}) must be the same length as output_files (length: {len(OUTPUT_LIST)})")
 
 for input_sublist, output_path_str in zip(INPUT_LIST, OUTPUT_LIST):
     md.reset()
