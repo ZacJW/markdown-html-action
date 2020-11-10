@@ -40,7 +40,7 @@ for input_sublist, output_path_str in zip(INPUT_LIST, OUTPUT_LIST):
                     md_str += input_file.read() + "\n"
     print("Generating", output_path_str)
     output_path = REPO_PATH.joinpath(output_path_str)
-    html = md.convert(md_str) + "\n" + style
+    html = "<!DOCTYPE html>\n" + md.convert(md_str) + "\n" + style
     with open(output_path, 'w') as output_file:
         output_file.write(html)
 print("Markdown-HTML complete")
