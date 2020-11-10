@@ -11,6 +11,10 @@ inputs:
     description: "(boolean) Whether or not a file should be automatically excluded from being included more than once in a given output file"
     required: true
     default: true
+  builtin_stylesheet:
+    description: "An optional path to a CSS file that will be included as a <style> block in every output file"
+    required: true
+    default: ""
 runs:
   using: 'docker'
   image: 'Dockerfile'
