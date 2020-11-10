@@ -1,0 +1,16 @@
+name: "Markdown-HTML"
+description: "Render markdown to HTML files"
+inputs:
+  input_files:
+    description: "A list of a list of paths to markdown files to render in to HTML files"
+    required: true
+  output_files:
+    description: "A list of paths to save the rendered HTML files to"
+    required: true
+  exclude_duplicates:
+    description: "(boolean) Whether or not a file should be automatically excluded from being included more than once in a given output file"
+    required: true
+    default: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
