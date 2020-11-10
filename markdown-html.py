@@ -2,7 +2,7 @@
 
 import markdown, natsort, os, json, pathlib
 
-md = markdown.Markdown(extensions=["tables", "toc"], output_format="html5")
+md = markdown.Markdown(extensions=["extra", "toc"], output_format="html5")
 
 REPO_PATH = pathlib.Path(os.environ['GITHUB_WORKSPACE'])
 INPUT_LIST = json.loads(os.environ['INPUT_INPUT_FILES'])
