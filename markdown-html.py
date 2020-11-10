@@ -1,5 +1,7 @@
 #!/bin/python3
 
+print("- Markdown-HTML -")
+
 import markdown, natsort, os, json, pathlib
 
 md = markdown.Markdown(extensions=["extra", "toc"], output_format="html5")
@@ -33,7 +35,9 @@ for input_sublist, output_path_str in zip(INPUT_LIST, OUTPUT_LIST):
                 input_path_included.add(input_path_str)
                 with open(input_path_str, 'r') as input_file:
                     md_str += input_file.read() + "\n"
+    print("Generating", output_path_str)
     output_path = REPO_PATH.joinpath(output_path_str)
     html = md.convert(md_str)
     with open(output_path, 'w') as output_file:
         output_file.write(html)
+print("Markdown-HTML complete")
