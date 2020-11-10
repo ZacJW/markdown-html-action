@@ -39,9 +39,5 @@ for input_sublist, output_path_str in zip(INPUT_LIST, OUTPUT_LIST):
                     md_str += input_file.read() + "\n"
     output_path = REPO_PATH.joinpath(output_path_str)
     html = md.convert(md_str)
-    print("HTML:", html)
-    input()
-    print("Output Path", output_path)
-    input()
     with open(output_path, 'w') as output_file:
         output_file.write(html)
