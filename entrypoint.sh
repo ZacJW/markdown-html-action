@@ -2,7 +2,7 @@
 
 pip3 install markdown natsort
 
-if $INPUT_PACKAGES -ne '' then
+if [ -n "$INPUT_PACKAGES" ]; then
     IFS=' ' read -ra packages <<< "$INPUT_PACKAGES"
     for p in "$packages[@]"; do
         printf "%s\n" "$p" >> packages.txt
