@@ -4,13 +4,14 @@ print("- Markdown-HTML -")
 
 import markdown, natsort, os, json, pathlib
 
-md = markdown.Markdown(extensions=["extra"], output_format="html5")
-
 REPO_PATH = pathlib.Path(os.environ['GITHUB_WORKSPACE'])
 INPUT_LIST = json.loads(os.environ['INPUT_INPUT_FILES'])
 OUTPUT_LIST = json.loads(os.environ['INPUT_OUTPUT_FILES'])
 EXCLUDE_DUPLICATES : bool = json.loads(os.environ['INPUT_EXCLUDE_DUPLICATES'])
 BUILTIN_STYLESHEET : str = os.environ['INPUT_BUILTIN_STYLESHEET']
+EXTENSIONS : list = json.loads(os.environ['INPUT_EXTENSIONS'])
+
+md = markdown.Markdown(extensions=EXTENSIONS, output_format="html5")
 
 if not isinstance(INPUT_LIST, list) or not all([isinstance(sublist, list) for sublist in INPUT_LIST]):
     raise ValueError("input_files must be a JSON list of lists")

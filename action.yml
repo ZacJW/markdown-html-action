@@ -2,10 +2,10 @@ name: "Markdown-HTML"
 description: "Render markdown to HTML files"
 inputs:
   input_files:
-    description: "A list of a list of paths to markdown files to render in to HTML files"
+    description: "A JSON list of a list of paths to markdown files to render in to HTML files"
     required: true
   output_files:
-    description: "A list of paths to save the rendered HTML files to"
+    description: "A JSON list of paths to save the rendered HTML files to"
     required: true
   exclude_duplicates:
     description: "(boolean) Whether or not a file should be automatically excluded from being included more than once in a given output file"
@@ -13,6 +13,14 @@ inputs:
     default: true
   builtin_stylesheet:
     description: "An optional path to a CSS file that will be included as a <style> block in every output file"
+    required: true
+    default: ""
+  extensions:
+    description: "A JSON list of extensions to be passed to Python markdown"
+    required: true
+    default: "['extra']"
+  packages:
+    description: "A space separated list of Python packages to be installed before execution (useful for installing third-party markdown extensions)"
     required: true
     default: ""
 runs:
