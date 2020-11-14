@@ -10,8 +10,9 @@ OUTPUT_LIST = json.loads(os.environ['INPUT_OUTPUT_FILES'])
 EXCLUDE_DUPLICATES : bool = json.loads(os.environ['INPUT_EXCLUDE_DUPLICATES'])
 BUILTIN_STYLESHEET : str = os.environ['INPUT_BUILTIN_STYLESHEET']
 EXTENSIONS : list = json.loads(os.environ['INPUT_EXTENSIONS'])
+EXTENSION_CONFIGS : dict = json.loads(os.environ['INPUT_EXTENSION_CONFIGS'])
 
-md = markdown.Markdown(extensions=EXTENSIONS, output_format="html5")
+md = markdown.Markdown(extensions=EXTENSIONS, extension_configs=EXTENSION_CONFIGS, output_format="html5")
 
 if not isinstance(INPUT_LIST, list) or not all([isinstance(sublist, list) for sublist in INPUT_LIST]):
     raise ValueError("input_files must be a JSON list of lists")

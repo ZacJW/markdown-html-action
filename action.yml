@@ -19,6 +19,10 @@ inputs:
     description: "A JSON list of extensions to be passed to Python markdown"
     required: true
     default: "['extra']"
+  extension_configs:
+    description: "A JSON object of extension configurations"
+    required: true
+    default: "{}"
   packages:
     description: "A space separated list of Python packages to be installed before execution (useful for installing third-party markdown extensions)"
     required: true

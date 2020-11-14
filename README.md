@@ -67,3 +67,9 @@ This does not exclude a file from being included in more than one output file.
 *Optional*. A JSON list of extensions to be passed to Python markdown. See [Python-Markdown](https://python-markdown.github.io/extensions/) for details. Also supports third-party extensions so long as their packages have been installed using the `packages` input.
 
 **If not specified**, the built-in `extra` extension pack will be enabled.
+
+### `extension_configs`
+
+*Optional*. A JSON object of extension configurations. See [Python-Markdown](https://python-markdown.github.io/reference/#extension_configs) for details.
+
+**If not specified**, extensions will use default configurations.
