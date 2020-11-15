@@ -13,7 +13,7 @@ Renders markdown files to HTML files using Python's markdown package.
 ## Usage
 
 ```yaml
-      - uses: ZacJW/markdown-html-action@1.0.1
+      - uses: ZacJW/markdown-html-action@1.1.0
         with:
           input_files: '[["wildcard*.md"], ["dir1/*.md", "dir2/*.md]]'
           output_files: '["out1.html", "out2.html"]'
