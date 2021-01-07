@@ -18,7 +18,7 @@ inputs:
   extensions:
     description: "A JSON list of extensions to be passed to Python markdown"
     required: true
-    default: "['extra']"
+    default: '["extra"]'
   extension_configs:
     description: "A JSON object of extension configurations"
     required: true
