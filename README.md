@@ -52,7 +52,7 @@ This does not exclude a file from being included in more than one output file.
 
 ### `builtin_stylesheet`
 
-*Optional*. A path to a stylesheet to be included as a `<style>` block at the end of every output file.
+*Optional*. A path to a stylesheet to be included as a `<style>` block at the beginning of every output file.
 
 **If not specified**, no `<style>` block will be created.
 
